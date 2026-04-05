@@ -425,20 +425,21 @@
       background: radial-gradient(circle, rgba(79,142,247,0.12), transparent 70%);
     }
     .contact-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.6rem; }
-    .contact-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
-    .contact-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .contact-card .contact-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+    .contact-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 0; }
     .social-row {
-      display: flex; gap: 1rem; justify-content: center;
-      margin-top: 2rem; flex-wrap: wrap;
+      display: flex; gap: 0.6rem; justify-content: center;
+      margin-top: 1.5rem; flex-wrap: wrap;
     }
     .social-btn {
-      width: 44px; height: 44px; border-radius: 10px;
+      height: 38px; padding: 0 0.9rem; border-radius: 9px;
       background: var(--bg3);
       border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.15rem;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 600;
       text-decoration: none; color: var(--muted);
       transition: border-color 0.2s, color 0.2s, transform 0.2s;
+      white-space: nowrap;
     }
     .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
@@ -476,6 +477,9 @@
     }
 
     /* ---- MOBILE ---- */
+    @media (max-width: 640px) {
+      .impact-banner { grid-template-columns: 1fr !important; }
+    }
     @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav { padding: 0 4%; }
@@ -490,7 +494,7 @@
       .hamburger { display: flex; }
       .nav-cta { display: none; }
       section { padding: 70px 5%; }
-      .contact-card { padding: 2rem 1.5rem; }
+      .contact-card { padding: 2rem 1.4rem; }
       h1 { font-size: 2.5rem; }
       .hero-stats { gap: 1.5rem; }
     }
@@ -555,10 +559,6 @@
         <div class="stat-num">40%</div>
         <div class="stat-label">Load Time Reduction</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">18K+</div>
-        <div class="stat-label">ATMs Managed</div>
-      </div>
     </div>
   </div>
 </section>
@@ -578,11 +578,14 @@
         My engineering philosophy centers on <span>clean architecture, measurable performance, and long-term maintainability</span>. I own the full lifecycle — from system design and API collaboration to Play Store deployment and production monitoring.
       </p>
       <p>
+        I actively integrate <span>AI-driven development practices</span> into my workflow — leveraging tools like GitHub Copilot and AI-assisted code generation for zero-code UI scaffolding, handling multiple feature workstreams in parallel, and dramatically reducing time-to-ship without compromising quality.
+      </p>
+      <p>
         Beyond code, I enjoy <span>mentoring developers</span>, introducing structured Agile practices, and translating complex requirements into practical, scalable solutions. I thrive in fast-paced environments where engineering quality directly impacts end users.
       </p>
       <div class="contact-list">
         <div class="contact-item"><div class="icon">📍</div> Kolkata, West Bengal, India</div>
-        <div class="contact-item"><div class="icon">📞</div> <a href="tel:+918910798646">+91 8910798646</a></div>
+
         <div class="contact-item"><div class="icon">✉️</div> <a href="mailto:subhodeepsarkar909@gmail.com">subhodeepsarkar909@gmail.com</a></div>
         <div class="contact-item"><div class="icon">💼</div> <a href="https://linkedin.com" target="_blank">LinkedIn Profile</a></div>
       </div>
@@ -606,6 +609,10 @@
           <div class="strength-item" style="display:flex;gap:1rem;align-items:flex-start;">
             <div style="width:36px;height:36px;border-radius:9px;background:rgba(251,146,60,0.12);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">👥</div>
             <div><div style="font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">Leadership & Mentoring</div><div style="font-size:0.82rem;color:var(--muted);">Team management, Agile introduction, client communication</div></div>
+          </div>
+          <div class="strength-item" style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:36px;height:36px;border-radius:9px;background:rgba(167,139,250,0.12);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">🤖</div>
+            <div><div style="font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">AI-Driven Productivity</div><div style="font-size:0.82rem;color:var(--muted);">AI-assisted UI generation, multi-ticket parallelism, zero-code scaffolding</div></div>
           </div>
         </div>
       </div>
@@ -685,6 +692,16 @@
         <span class="tag orange">ADAS Integration</span>
       </div>
     </div>
+    <div>
+      <div class="skill-cat-label">AI & Productivity</div>
+      <div class="tags">
+        <span class="tag purple">GitHub Copilot</span>
+        <span class="tag purple">AI-Assisted Development</span>
+        <span class="tag purple">Zero-Code UI Generation</span>
+        <span class="tag purple">Multi-ticket Parallelism</span>
+        <span class="tag purple">Prompt Engineering</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -700,7 +717,7 @@
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-header">
-        <div class="job-title">Software Engineer II (Android)</div>
+        <div class="job-title">Software Engineer II</div>
       </div>
       <div class="job-company-row">
         <div class="company-logo" style="background:#0d1b2e;">
@@ -726,9 +743,10 @@
         <li>Built and optimized <span>BLE communication pipelines</span> for continuous device-to-mobile data exchange</li>
         <li>Architected apps using <span>MVVM, Clean Architecture & modularization</span> for scalable feature development</li>
         <li>Reduced load times by <span>~40%</span> via efficient data handling, caching & background processing</li>
-        <li>Resolved production ANRs, crashes and memory leaks using Android Profiler & Firebase Crashlytics</li>
+        <li>Achieved and maintained <span>0% ANR · 0% crash rate</span> across 5,000+ active users on HOS, ADAS, Dual Dashcam &amp; C18 360 Dashcam apps — a rare standard in high-frequency production environments</li>
         <li>Automated build/test/release via <span>CI/CD pipelines</span>; managed multi-flavor configs (dev/staging/prod)</li>
         <li>Developed reusable libraries & modules with Git submodules across multiple applications</li>
+        <li>Leveraged <span>AI-assisted development tools</span> to work across multiple tickets simultaneously — accelerating feature delivery, enabling zero-code UI scaffolding, and boosting individual engineering throughput significantly</li>
       </ul>
     </div>
 
@@ -796,77 +814,333 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="reveal">
-    <div class="section-label">Work</div>
-    <h2 class="section-title">Project Highlights</h2>
-    <p class="section-desc">40+ apps shipped on Google Play Store — including whitelabel products and freelance projects. A selection of key highlights below.</p>
+    <div class="section-label">Shipped Work</div>
+    <h2 class="section-title">Projects & Apps</h2>
+    <p class="section-desc">From enterprise logistics to consumer social — a proven track record across domains, team sizes, and deployment environments.</p>
   </div>
 
-  <!-- Play Store Apps Strip -->
-  <div class="reveal" style="margin-bottom:2.5rem;">
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
-      <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);flex-shrink:0;">Notable Apps</div>
-      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.8rem;font-weight:500;">📱 NRFS</span>
-        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.8rem;font-weight:500;">🛒 PG Store</span>
-        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.8rem;font-weight:500;">🚗 Apnavan Driver</span>
-        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.8rem;font-weight:500;">⬆️ Elevate</span>
-        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(79,142,247,0.1);color:var(--tag-color);border:1px solid rgba(79,142,247,0.2);font-size:0.8rem;font-weight:500;">+ 36 more on Play Store</span>
+  <!-- Impact Banner -->
+  <div class="reveal" style="margin-bottom:3rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+
+      <!-- Play Store Card -->
+      <div style="position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(74,222,128,0.08),rgba(74,222,128,0.03));border:1px solid rgba(74,222,128,0.25);border-radius:18px;padding:1.8rem 2rem;">
+        <div style="position:absolute;top:-30px;right:-30px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(74,222,128,0.15),transparent 70%);pointer-events:none;"></div>
+        <div style="font-size:2.6rem;font-weight:800;background:linear-gradient(135deg,#4ade80,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:0.3rem;">40+</div>
+        <div style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">Official Apps Live on Play Store</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-bottom:1.2rem;">Production-grade Android apps shipped across enterprise clients, whitelabel products, and partner deployments — all live and maintained.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.45rem;">
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-size:0.75rem;font-weight:500;">🚛 HOS App</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-size:0.75rem;font-weight:500;">📷 ADAS Dashcam</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-size:0.75rem;font-weight:500;">📹 Dual Dashcam</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-size:0.75rem;font-weight:500;">🎥 C18 360</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-size:0.75rem;font-weight:500;">🤖 ELD AI</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-size:0.75rem;font-weight:500;">⬆️ Elevate</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(255,255,255,0.05);color:var(--muted);border:1px solid var(--border);font-size:0.75rem;font-weight:500;">+ many more</span>
+        </div>
       </div>
+
+      <!-- Freelance Card -->
+      <div style="position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(79,142,247,0.08),rgba(124,58,237,0.05));border:1px solid rgba(79,142,247,0.25);border-radius:18px;padding:1.8rem 2rem;">
+        <div style="position:absolute;top:-30px;right:-30px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(79,142,247,0.15),transparent 70%);pointer-events:none;"></div>
+        <div style="font-size:2.6rem;font-weight:800;background:linear-gradient(135deg,var(--accent),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:0.3rem;">10+</div>
+        <div style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">Freelance Projects Delivered</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-bottom:1.2rem;">Independent client work spanning e-commerce, on-demand services, driver apps, and custom business tools — delivered end-to-end from scoping to Play Store.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.45rem;">
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(79,142,247,0.12);color:var(--tag-color);border:1px solid rgba(79,142,247,0.2);font-size:0.75rem;font-weight:500;">E-Commerce</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(79,142,247,0.12);color:var(--tag-color);border:1px solid rgba(79,142,247,0.2);font-size:0.75rem;font-weight:500;">On-Demand</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(79,142,247,0.12);color:var(--tag-color);border:1px solid rgba(79,142,247,0.2);font-size:0.75rem;font-weight:500;">Driver Apps</span>
+          <span style="padding:0.25rem 0.7rem;border-radius:20px;background:rgba(79,142,247,0.12);color:var(--tag-color);border:1px solid rgba(79,142,247,0.2);font-size:0.75rem;font-weight:500;">B2B Tools</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zero ANR / Zero Crash Banner -->
+  <div class="reveal" style="margin-bottom:2.5rem;">
+    <div style="position:relative;overflow:hidden;border-radius:20px;padding:2.5rem 2.5rem;background:#0a160f;border:1px solid rgba(74,222,128,0.35);box-shadow:0 0 60px rgba(74,222,128,0.08),inset 0 0 80px rgba(74,222,128,0.03);">
+
+      <!-- Glow blobs -->
+      <div style="position:absolute;top:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(74,222,128,0.18),transparent 70%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-60px;right:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,0.12),transparent 70%);pointer-events:none;"></div>
+
+      <!-- Top label -->
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1.4rem;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:pulse 2s infinite;"></div>
+        <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#4ade80;">Production Quality Achievement</span>
+      </div>
+
+      <!-- Main stats row -->
+      <div style="display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-end;margin-bottom:1.6rem;">
+        <div>
+          <div style="font-size:clamp(2.8rem,6vw,4.5rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#4ade80 0%,#22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.03em;">0 ANR</div>
+          <div style="font-size:0.8rem;color:#6ee7a0;font-weight:600;margin-top:0.2rem;letter-spacing:0.05em;">APPLICATION NOT RESPONDING</div>
+        </div>
+        <div style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:300;color:rgba(74,222,128,0.3);align-self:center;">·</div>
+        <div>
+          <div style="font-size:clamp(2.8rem,6vw,4.5rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#22d3ee 0%,#818cf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.03em;">0 Crashes</div>
+          <div style="font-size:0.8rem;color:#67e8f9;font-weight:600;margin-top:0.2rem;letter-spacing:0.05em;">ACROSS ALL ELD MANDATE PRODUCTION APPS</div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div style="height:1px;background:linear-gradient(90deg,rgba(74,222,128,0.3),rgba(34,211,238,0.2),transparent);margin-bottom:1.4rem;"></div>
+
+      <!-- Description + App pills -->
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem;justify-content:space-between;">
+        <div style="font-size:0.85rem;color:var(--muted);max-width:480px;line-height:1.6;">
+          Maintained across all live ELD Mandate apps in daily high-frequency use — a standard most Android teams never achieve at this scale.
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.78rem;font-weight:600;">HOS App</span>
+          <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.78rem;font-weight:600;">ADAS App</span>
+          <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.78rem;font-weight:600;">Dual Dashcam</span>
+          <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.78rem;font-weight:600;">C18 360 Dashcam</span>
+          <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.78rem;font-weight:600;">ELD AI</span>
+          <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.78rem;font-weight:600;">Elevate</span>
+          <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.78rem;font-weight:600;">Asset Tracker</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ELD Mandate Section -->
+  <div class="reveal" style="margin-bottom:1.2rem;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);">ELD Mandate Biz · Current</div>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+  </div>
+
+  <div class="projects-grid" style="margin-bottom:3rem;">
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🚛</div>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:flex-end;">
+          <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-weight:700;">✓ 0 ANR · 0 Crash</span>
+        </div>
+      </div>
+      <div class="project-name">ELD Mandate HOS App</div>
+      <div style="font-size:0.75rem;color:#4ade80;font-weight:600;margin-bottom:0.5rem;">5,000+ Active Drivers · Live on Play Store</div>
+      <div class="project-desc">FMCSA-compliant Hours-of-Service tracking with BLE device integration. Real-time driver logs, duty status management, and automated regulatory reporting — zero ANR and zero crashes across 5K+ fleet drivers in daily use.</div>
+      <div class="project-tags" style="margin-bottom:0.9rem;">
+        <span class="project-tag">BLE</span><span class="project-tag">FMCSA</span><span class="project-tag">Kotlin</span><span class="project-tag">Coroutines</span><span class="project-tag">MVVM</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.eldmandate.hos" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:var(--tag-color);text-decoration:none;padding:0.3rem 0.8rem;border:1px solid rgba(79,142,247,0.25);border-radius:6px;background:rgba(79,142,247,0.08);transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.25)'">▶ View on Play Store</a>
+    </div>
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">📷</div>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:flex-end;">
+          <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-weight:700;">✓ 0 ANR · 0 Crash</span>
+        </div>
+      </div>
+      <div class="project-name">ADAS Dashcam App</div>
+      <div style="font-size:0.75rem;color:#4ade80;font-weight:600;margin-bottom:0.5rem;">500+ Active Users · Live on Play Store</div>
+      <div class="project-desc">Real-time AI-assisted dashcam with ADAS driver behaviour alerts, lane departure warnings, and forward collision detection. Streams live footage to fleet operators via AWS Kinesis — zero crashes in production.</div>
+      <div class="project-tags" style="margin-bottom:0.9rem;">
+        <span class="project-tag">ADAS</span><span class="project-tag">AI Safety</span><span class="project-tag">AWS Kinesis</span><span class="project-tag">Real-time</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.eldmandate.adasdashcam" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:var(--tag-color);text-decoration:none;padding:0.3rem 0.8rem;border:1px solid rgba(79,142,247,0.25);border-radius:6px;background:rgba(79,142,247,0.08);transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.25)'">▶ View on Play Store</a>
+    </div>
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">📹</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-weight:700;">✓ 0 ANR · 0 Crash</span>
+      </div>
+      <div class="project-name">Dual Dashcam App</div>
+      <div style="font-size:0.75rem;color:var(--tag-color);font-weight:600;margin-bottom:0.5rem;">ELD Mandate · Fleet Safety</div>
+      <div class="project-desc">Dual-channel dashcam application supporting simultaneous front and cabin recording with live streaming, incident tagging, and remote fleet monitoring for US commercial trucking operations.</div>
+      <div class="project-tags">
+        <span class="project-tag">Dual Camera</span><span class="project-tag">Live Stream</span><span class="project-tag">Kotlin</span><span class="project-tag">Fleet</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🎥</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(74,222,128,0.12);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-weight:700;">✓ 0 ANR · 0 Crash</span>
+      </div>
+      <div class="project-name">C18 360 Dashcam App</div>
+      <div style="font-size:0.75rem;color:var(--tag-color);font-weight:600;margin-bottom:0.5rem;">ELD Mandate · 360° Fleet Coverage</div>
+      <div class="project-desc">360-degree surround-view dashcam app for the C18 hardware — multi-angle recording, real-time blind-spot monitoring, and cloud sync for post-trip analysis across commercial fleets.</div>
+      <div class="project-tags">
+        <span class="project-tag">360° Camera</span><span class="project-tag">Multi-angle</span><span class="project-tag">Cloud Sync</span><span class="project-tag">Kotlin</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">💬</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(167,139,250,0.12);color:#c4b5fd;border:1px solid rgba(167,139,250,0.2);font-weight:600;">Health · ELD Mandate</span>
+      </div>
+      <div class="project-name">Elevate</div>
+      <div style="font-size:0.75rem;color:#c4b5fd;font-weight:600;margin-bottom:0.5rem;">ELD Mandate · Live on Play Store</div>
+      <div class="project-desc">Anonymous consultancy chat platform for drug addiction recovery — connecting individuals with certified counsellors and doctors in a fully private, stigma-free environment. Enables confidential one-to-one sessions, progress tracking, and resource sharing.</div>
+      <div class="project-tags" style="margin-bottom:0.9rem;">
+        <span class="project-tag">Anonymous Chat</span><span class="project-tag">Healthcare</span><span class="project-tag">Kotlin</span><span class="project-tag">Firebase</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.elevate.eldmandate" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:var(--tag-color);text-decoration:none;padding:0.3rem 0.8rem;border:1px solid rgba(79,142,247,0.25);border-radius:6px;background:rgba(79,142,247,0.08);transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.25)'">▶ View on Play Store</a>
+    </div>
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🤖</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(167,139,250,0.12);color:#c4b5fd;border:1px solid rgba(167,139,250,0.2);font-weight:600;">AI-Powered</span>
+      </div>
+      <div class="project-name">ELD AI</div>
+      <div style="font-size:0.75rem;color:#c4b5fd;font-weight:600;margin-bottom:0.5rem;">ELD Mandate · Live on Play Store</div>
+      <div class="project-desc">AI-powered ELD companion app that assists drivers with intelligent HOS recommendations, predictive compliance alerts, and automated logbook suggestions — reducing manual input and violation risk.</div>
+      <div class="project-tags" style="margin-bottom:0.9rem;">
+        <span class="project-tag">AI / ML</span><span class="project-tag">HOS</span><span class="project-tag">Automation</span><span class="project-tag">Kotlin</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.eldmandate.eld.ai" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#c4b5fd;text-decoration:none;padding:0.3rem 0.8rem;border:1px solid rgba(167,139,250,0.25);border-radius:6px;background:rgba(167,139,250,0.08);transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(167,139,250,0.6)'" onmouseout="this.style.borderColor='rgba(167,139,250,0.25)'">▶ View on Play Store</a>
+    </div>
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🖥️</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(79,142,247,0.1);color:var(--tag-color);border:1px solid rgba(79,142,247,0.2);font-weight:600;">Web + Mobile</span>
+      </div>
+      <div class="project-name">ELD Mandate Portal</div>
+      <div style="font-size:0.75rem;color:var(--tag-color);font-weight:600;margin-bottom:0.5rem;">1,000+ Fleet Operators · API-First · Web & Play Store</div>
+      <div class="project-desc">Fully dynamic fleet management platform — web portal and companion mobile app, both driven entirely through APIs. Features ADAS livestream, real-time GPS driver & vehicle tracking, geofencing, hardware purchase module, and full fleet analytics dashboard.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.8rem;">
+        <span style="padding:0.18rem 0.55rem;border-radius:6px;font-size:0.7rem;font-weight:500;background:rgba(79,142,247,0.1);color:var(--tag-color);border:1px solid rgba(79,142,247,0.18);">ADAS Livestream</span>
+        <span style="padding:0.18rem 0.55rem;border-radius:6px;font-size:0.7rem;font-weight:500;background:rgba(79,142,247,0.1);color:var(--tag-color);border:1px solid rgba(79,142,247,0.18);">GPS Tracking</span>
+        <span style="padding:0.18rem 0.55rem;border-radius:6px;font-size:0.7rem;font-weight:500;background:rgba(79,142,247,0.1);color:var(--tag-color);border:1px solid rgba(79,142,247,0.18);">Purchase Module</span>
+        <span style="padding:0.18rem 0.55rem;border-radius:6px;font-size:0.7rem;font-weight:500;background:rgba(79,142,247,0.1);color:var(--tag-color);border:1px solid rgba(79,142,247,0.18);">Geofencing</span>
+      </div>
+      <div class="project-tags" style="margin-bottom:0.9rem;">
+        <span class="project-tag">REST APIs</span><span class="project-tag">Dynamic UI</span><span class="project-tag">Real-time</span><span class="project-tag">Web</span><span class="project-tag">Android</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=biz.eldmandate.assettracker" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:var(--tag-color);text-decoration:none;padding:0.3rem 0.8rem;border:1px solid rgba(79,142,247,0.25);border-radius:6px;background:rgba(79,142,247,0.08);transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.25)'">▶ Mobile App on Play Store</a>
+    </div>
+
+  </div>
+
+  <!-- Nakshatra Section -->
+  <div class="reveal" style="margin-bottom:1.2rem;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fda96c;">Nakshatra Technohub Pvt Ltd</div>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+  </div>
+
+  <div class="projects-grid" style="margin-bottom:3rem;">
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🏦</div>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:flex-end;">
+          <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(251,146,60,0.12);color:#fda96c;border:1px solid rgba(251,146,60,0.2);font-weight:700;">PwC Certified</span>
+          <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(255,255,255,0.05);color:var(--muted);border:1px solid var(--border);font-weight:600;">B2B · APK</span>
+        </div>
+      </div>
+      <div class="project-name">WriterSafeGuard Custodian</div>
+      <div style="font-size:0.75rem;color:#fda96c;font-weight:600;margin-bottom:0.5rem;">18,000+ ATMs Across India · Enterprise B2B</div>
+      <div class="project-desc">Highly secure banking custodian app deployed directly via APK to enterprise clients — managing 18,000+ ATMs across India. Achieved PwC certification for security and reliability. Delivered to client as a B2B white-label solution.</div>
+      <div class="project-tags">
+        <span class="project-tag">Fintech</span><span class="project-tag">B2B APK</span><span class="project-tag">18K+ ATMs</span><span class="project-tag">Enterprise Security</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🗓️</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(251,146,60,0.12);color:#fda96c;border:1px solid rgba(251,146,60,0.2);font-weight:600;">Built from Scratch</span>
+      </div>
+      <div class="project-name">HubSched</div>
+      <div style="font-size:0.75rem;color:#fda96c;font-weight:600;margin-bottom:0.5rem;">Nakshatra Technohub · Live on Play Store</div>
+      <div class="project-desc">Scheduling and workforce management app built entirely from scratch — handling shift assignments, team coordination, availability tracking, and real-time notifications for enterprise workforce operations.</div>
+      <div class="project-tags" style="margin-bottom:0.9rem;">
+        <span class="project-tag">Scheduling</span><span class="project-tag">Kotlin</span><span class="project-tag">Firebase</span><span class="project-tag">MVVM</span>
+      </div>
+      <a href="https://play.google.com/store/search?q=HubSched" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#fda96c;text-decoration:none;padding:0.3rem 0.8rem;border:1px solid rgba(251,146,60,0.25);border-radius:6px;background:rgba(251,146,60,0.08);transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(251,146,60,0.6)'" onmouseout="this.style.borderColor='rgba(251,146,60,0.25)'">▶ View on Play Store</a>
+    </div>
+
+  </div>
+
+  <!-- Rhyme Tech Section -->
+  <div class="reveal" style="margin-bottom:1.2rem;margin-top:1rem;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#c4b5fd;">Rhyme Tech Pvt Ltd</div>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🎥</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(167,139,250,0.12);color:#c4b5fd;border:1px solid rgba(167,139,250,0.2);font-weight:600;">Consumer Social</span>
+      </div>
+      <div class="project-name">Chitchat – AMA, Talk, Stream</div>
+      <div style="font-size:0.75rem;color:#c4b5fd;font-weight:600;margin-bottom:0.5rem;">Rhyme Tech Pvt Ltd · Live on Play Store</div>
+      <div class="project-desc">Video-based social platform enabling content creation, live streaming, AMAs, and audience interaction for creators. Built with GraphQL and Firebase for real-time engagement at scale.</div>
+      <div class="project-tags">
+        <span class="project-tag">GraphQL</span><span class="project-tag">Firebase</span><span class="project-tag">Live Streaming</span><span class="project-tag">Social</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Freelance Section -->
+  <div class="reveal" style="margin-bottom:1.2rem;margin-top:1rem;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6ee7a0;">Freelance Projects</div>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
     </div>
   </div>
 
   <div class="projects-grid">
 
     <div class="project-card">
-      <div class="project-icon">🚛</div>
-      <div class="project-name">ELD Mandate HOS App</div>
-      <div class="project-desc">BLE-integrated Hours-of-Service compliance system for real-time driver tracking, built to FMCSA standards for the US trucking industry.</div>
-      <div class="project-tags">
-        <span class="project-tag">BLE</span>
-        <span class="project-tag">FMCSA</span>
-        <span class="project-tag">Kotlin</span>
-        <span class="project-tag">Coroutines</span>
-        <span class="project-tag">MVVM</span>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🛒</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-weight:600;">Freelance · Flutter</span>
       </div>
+      <div class="project-name">PG Store</div>
+      <div style="font-size:0.75rem;color:#6ee7a0;font-weight:600;margin-bottom:0.5rem;">Live on Play Store</div>
+      <div class="project-desc">Full-featured e-commerce app built in Flutter — product catalog, cart, order tracking, and payment gateway integration. Delivered end-to-end from scoping to Play Store publication.</div>
+      <div class="project-tags" style="margin-bottom:0.9rem;">
+        <span class="project-tag">Flutter</span><span class="project-tag">Dart</span><span class="project-tag">E-Commerce</span><span class="project-tag">Payment Gateway</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.pgstore.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#6ee7a0;text-decoration:none;padding:0.3rem 0.8rem;border:1px solid rgba(74,222,128,0.25);border-radius:6px;background:rgba(74,222,128,0.08);transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(74,222,128,0.6)'" onmouseout="this.style.borderColor='rgba(74,222,128,0.25)'">▶ View on Play Store</a>
     </div>
 
     <div class="project-card">
-      <div class="project-icon">📷</div>
-      <div class="project-name">ADAS Dashcam Application</div>
-      <div class="project-desc">Real-time video recording and driver behavior monitoring system with ADAS integration for fleet safety and analytics.</div>
-      <div class="project-tags">
-        <span class="project-tag">ADAS</span>
-        <span class="project-tag">Real-time</span>
-        <span class="project-tag">Video</span>
-        <span class="project-tag">AWS Kinesis</span>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">📱</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-weight:600;">Freelance</span>
       </div>
+      <div class="project-name">NRFS</div>
+      <div style="font-size:0.75rem;color:#6ee7a0;font-weight:600;margin-bottom:0.5rem;">Live on Play Store</div>
+      <div class="project-desc">Native Android application delivered as an independent freelance project — built with Kotlin, clean architecture, and REST API integration, published and maintained on the Play Store.</div>
+      <div class="project-tags" style="margin-bottom:0.9rem;">
+        <span class="project-tag">Kotlin</span><span class="project-tag">REST API</span><span class="project-tag">Clean Arch</span><span class="project-tag">Play Store</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.nrfs" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;color:#6ee7a0;text-decoration:none;padding:0.3rem 0.8rem;border:1px solid rgba(74,222,128,0.25);border-radius:6px;background:rgba(74,222,128,0.08);transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(74,222,128,0.6)'" onmouseout="this.style.borderColor='rgba(74,222,128,0.25)'">▶ View on Play Store</a>
     </div>
 
     <div class="project-card">
-      <div class="project-icon">🏦</div>
-      <div class="project-name">WriterSafeGuard Custodian</div>
-      <div class="project-desc">Banking solution managing 18,000+ ATMs across India. Achieved PwC certification with high standards of security and reliability.</div>
-      <div class="project-tags">
-        <span class="project-tag">PwC Certified</span>
-        <span class="project-tag">Fintech</span>
-        <span class="project-tag">18K+ ATMs</span>
-        <span class="project-tag">Security</span>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.9rem;">
+        <div class="project-icon" style="margin-bottom:0;">🚗</div>
+        <span style="font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:6px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.2);font-weight:600;">Freelance</span>
       </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-icon">🎥</div>
-      <div class="project-name">Chitchat – AMA, Talk, Stream</div>
-      <div class="project-desc">Video-based social platform enabling content creation, live streaming, and audience interaction for creators.</div>
+      <div class="project-name">Apnavan Driver</div>
+      <div style="font-size:0.75rem;color:#6ee7a0;font-weight:600;margin-bottom:0.5rem;">On-Demand Logistics</div>
+      <div class="project-desc">On-demand driver app with real-time ride tracking, earnings dashboard, and live trip management. Delivered complete — from requirements to Play Store — as a standalone freelance engagement.</div>
       <div class="project-tags">
-        <span class="project-tag">GraphQL</span>
-        <span class="project-tag">Firebase</span>
-        <span class="project-tag">Live Streaming</span>
-        <span class="project-tag">Social</span>
+        <span class="project-tag">Maps API</span><span class="project-tag">Real-time</span><span class="project-tag">Firebase</span><span class="project-tag">Kotlin</span>
       </div>
     </div>
 
   </div>
+
 </section>
 
 <!-- EDUCATION -->
@@ -882,13 +1156,7 @@
       <div class="edu-school">Indira Gandhi Open University</div>
       <div class="edu-year">Pursuing · Expected 2028</div>
     </div>
-    <div class="edu-card">
-      <div class="edu-icon">📐</div>
-      <div class="edu-degree">Diploma in Engineering</div>
-      <div class="edu-school">Guru Nanak Institute of Technology, Kolkata</div>
-      <div class="edu-year">Completed</div>
-    </div>
-    <div class="edu-card">
+<div class="edu-card">
       <div class="edu-icon">📚</div>
       <div class="edu-degree">Higher Secondary</div>
       <div class="edu-school">Mulajore Sitanath Pathsala</div>
@@ -922,17 +1190,31 @@
 <section id="contact">
   <div class="reveal" style="display:flex;justify-content:center;">
     <div class="contact-card">
-      <div class="section-label" style="margin-bottom:0.5rem;">Let's Connect</div>
-      <h3>Got a Project in Mind?</h3>
-      <p>Whether you need a senior Android engineer, a BLE/ELD specialist, or a team lead — I'd love to hear about it.</p>
+      <div class="section-label" style="margin-bottom:0.6rem;">Open to Opportunities</div>
+      <h3>Let's Build Something Exceptional</h3>
+      <p class="contact-sub">6+ years shipping Android apps to production. Whether you're scaling a team, launching a product, or need someone who can own the tech stack end-to-end — let's talk.</p>
       <div class="contact-buttons">
-        <a href="mailto:subhodeepsarkar909@gmail.com" class="btn btn-primary">✉️ Send Email</a>
-        <a href="tel:+918910798646" class="btn btn-ghost">📞 Call Me</a>
+        <a href="mailto:subhodeepsarkar909@gmail.com" class="btn btn-primary">✉️ Send an Email</a>
+        <a href="https://www.linkedin.com/in/subhodeep-sarkar-dev" target="_blank" class="btn btn-ghost">💼 View LinkedIn</a>
       </div>
       <div class="social-row">
-        <a href="https://linkedin.com" target="_blank" class="social-btn" title="LinkedIn">in</a>
-        <a href="mailto:subhodeepsarkar909@gmail.com" class="social-btn" title="Email">@</a>
-        <a href="tel:+918910798646" class="social-btn" title="Phone">📞</a>
+        <a href="mailto:subhodeepsarkar909@gmail.com" class="social-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </a>
+
+        <a href="https://github.com/ssubhodeep" target="_blank" class="social-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/subhodeep-sarkar-dev" target="_blank" class="social-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://www.instagram.com/isubhodeepsarkar" target="_blank" class="social-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @isubhodeepsarkar
+        </a>
       </div>
     </div>
   </div>
@@ -990,8 +1272,8 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const nums = entry.target.querySelectorAll('.stat-num');
-        const targets = [6, 40, 40, 18];
-        const suffixes = ['+', '+', '%', 'K+'];
+        const targets = [6, 40, 40];
+        const suffixes = ['+', '+', '%'];
         nums.forEach((n, i) => animateCounter(n, targets[i], suffixes[i]));
         statsObserver.unobserve(entry.target);
       }
@@ -1002,7 +1284,7 @@
   if (heroStats) statsObserver.observe(heroStats);
 
   // --- Typing cursor effect in hero ---
-  const titles = ['Senior Android Engineer', 'Tech Lead · Team Builder', 'Staff Engineer Ready', '40+ Apps on Play Store', 'Open to Senior Roles'];
+  const titles = ['Software Engineer II · Android', 'Tech Lead · Team Builder', 'Staff Engineer Ready', '40+ Apps on Play Store', 'Open to Senior / Lead Roles'];
   let ti = 0, ci = 0, deleting = false;
   const typedEl = document.createElement('span');
   typedEl.style.cssText = 'border-right:2px solid var(--accent);padding-right:2px;';
