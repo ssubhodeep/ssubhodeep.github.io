@@ -272,8 +272,8 @@
     .timeline-item {
       position: relative;
       margin-bottom: 3rem;
-      opacity: 0; transform: translateX(-20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 0; transform: translateX(-24px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .timeline-item.visible { opacity: 1; transform: translateX(0); }
     .timeline-dot {
@@ -288,6 +288,14 @@
     }
     .timeline-header { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: baseline; margin-bottom: 0.3rem; }
     .job-title { font-size: 1.1rem; font-weight: 700; }
+    .job-company-row { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.5rem; }
+    .company-logo {
+      width: 36px; height: 36px; border-radius: 8px;
+      overflow: hidden; flex-shrink: 0;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .company-logo img { width: 100%; height: 100%; object-fit: contain; }
     .job-company {
       font-size: 0.88rem; font-weight: 600;
       color: var(--tag-color);
@@ -379,11 +387,16 @@
       border-radius: 12px;
       padding: 1rem 1.3rem;
       display: flex; align-items: center; gap: 0.9rem;
-      transition: border-color 0.2s;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
       opacity: 0; transform: translateY(16px);
+      text-decoration: none; color: inherit; cursor: pointer;
     }
     .cert-card.visible { opacity: 1; transform: translateY(0); }
-    .cert-card:hover { border-color: rgba(74,222,128,0.35); }
+    .cert-card:hover {
+      border-color: rgba(74,222,128,0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(74,222,128,0.1);
+    }
     .cert-badge {
       width: 36px; height: 36px; border-radius: 9px;
       background: rgba(74,222,128,0.1);
@@ -391,6 +404,8 @@
       font-size: 1.1rem; flex-shrink: 0;
     }
     .cert-name { font-size: 0.84rem; font-weight: 600; }
+    .cert-arrow { margin-left: auto; font-size: 0.75rem; color: var(--muted); flex-shrink: 0; transition: color 0.2s; }
+    .cert-card:hover .cert-arrow { color: #6ee7a0; }
 
     /* ---- CONTACT ---- */
     #contact { background: var(--bg); }
@@ -441,8 +456,8 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -518,7 +533,7 @@
       <span class="gradient-text">Sarkar</span>
     </h1>
     <p class="hero-sub">
-      Senior Android Engineer with 6+ years building scalable, production-grade apps — specializing in BLE, ELD systems, and real-time performance.
+      Senior Android Engineer with 6+ years and 40+ Play Store apps — building scalable, production-grade systems across logistics, fintech, and social platforms.
     </p>
     <div class="hero-actions">
       <a href="#experience" class="btn btn-primary">
@@ -533,8 +548,8 @@
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Production Apps</div>
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Apps on Play Store</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">40%</div>
@@ -687,8 +702,22 @@
       <div class="timeline-header">
         <div class="job-title">Software Engineer II (Android)</div>
       </div>
-      <div class="job-meta">
+      <div class="job-company-row">
+        <div class="company-logo" style="background:#0d1b2e;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" fill="#0d1b2e"/>
+            <rect x="10" y="5" width="8" height="12" rx="1.5" fill="#4f8ef7" stroke="#7eb3ff" stroke-width="0.8"/>
+            <rect x="12" y="7" width="4" height="1.5" rx="0.5" fill="#0d1b2e"/>
+            <rect x="12" y="10" width="4" height="1" rx="0.3" fill="#7eb3ff" opacity="0.6"/>
+            <rect x="12" y="12" width="4" height="1" rx="0.3" fill="#7eb3ff" opacity="0.6"/>
+            <circle cx="14" cy="15.5" r="0.8" fill="#4ade80"/>
+            <path d="M7 19h14" stroke="#4f8ef7" stroke-width="1" stroke-linecap="round"/>
+            <text x="14" y="26" font-family="Arial" font-size="4" font-weight="bold" fill="#4f8ef7" text-anchor="middle">ELD</text>
+          </svg>
+        </div>
         <div class="job-company">ELD Mandate Biz</div>
+      </div>
+      <div class="job-meta">
         <div class="job-location">📍 California, US / Kolkata, India</div>
         <div class="job-date">📅 Jan 2024 – Present</div>
       </div>
@@ -708,8 +737,18 @@
       <div class="timeline-header">
         <div class="job-title">Senior Android Developer</div>
       </div>
-      <div class="job-meta">
+      <div class="job-company-row">
+        <div class="company-logo" style="background:#fff;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" fill="#fff"/>
+            <polygon points="14,4 20,10 20,18 14,24 8,18 8,10" fill="#c0392b"/>
+            <polygon points="14,7 18,11 18,17 14,21 10,17 10,11" fill="#e74c3c"/>
+            <polygon points="14,10 16,12 16,16 14,18 12,16 12,12" fill="#fff" opacity="0.8"/>
+          </svg>
+        </div>
         <div class="job-company">Nakshatra Technohub Pvt Ltd</div>
+      </div>
+      <div class="job-meta">
         <div class="job-location">📍 Nashik, India</div>
         <div class="job-date">📅 Jan 2023 – Jan 2024</div>
       </div>
@@ -727,8 +766,19 @@
       <div class="timeline-header">
         <div class="job-title">Senior Android Developer</div>
       </div>
-      <div class="job-meta">
+      <div class="job-company-row">
+        <div class="company-logo" style="background:#6d28d9;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" fill="#6d28d9"/>
+            <line x1="14" y1="4" x2="14" y2="24" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="4" y1="14" x2="24" y2="14" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="6.9" y1="6.9" x2="21.1" y2="21.1" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="21.1" y1="6.9" x2="6.9" y2="21.1" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="job-company">Rhyme Tech Pvt Ltd</div>
+      </div>
+      <div class="job-meta">
         <div class="job-location">📍 Bangalore, India</div>
         <div class="job-date">📅 Mar 2020 – Jan 2023</div>
       </div>
@@ -748,8 +798,23 @@
   <div class="reveal">
     <div class="section-label">Work</div>
     <h2 class="section-title">Project Highlights</h2>
-    <p class="section-desc">Production systems built for scale, compliance, and real-world reliability.</p>
+    <p class="section-desc">40+ apps shipped on Google Play Store — including whitelabel products and freelance projects. A selection of key highlights below.</p>
   </div>
+
+  <!-- Play Store Apps Strip -->
+  <div class="reveal" style="margin-bottom:2.5rem;">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
+      <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);flex-shrink:0;">Notable Apps</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.8rem;font-weight:500;">📱 NRFS</span>
+        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.8rem;font-weight:500;">🛒 PG Store</span>
+        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.8rem;font-weight:500;">🚗 Apnavan Driver</span>
+        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(74,222,128,0.1);color:#6ee7a0;border:1px solid rgba(74,222,128,0.25);font-size:0.8rem;font-weight:500;">⬆️ Elevate</span>
+        <span style="padding:0.3rem 0.85rem;border-radius:20px;background:rgba(79,142,247,0.1);color:var(--tag-color);border:1px solid rgba(79,142,247,0.2);font-size:0.8rem;font-weight:500;">+ 36 more on Play Store</span>
+      </div>
+    </div>
+  </div>
+
   <div class="projects-grid">
 
     <div class="project-card">
@@ -834,18 +899,21 @@
   <div style="margin-top:2.5rem;">
     <div class="section-label" style="margin-bottom:1rem;">Certifications</div>
     <div class="certs-grid">
-      <div class="cert-card">
+      <a href="https://www.credential.net/ff9a4272-61c7-4290-8642-72382f1aca1c#acc.DbnQ0E1a" target="_blank" rel="noopener" class="cert-card">
         <div class="cert-badge">🏅</div>
         <div class="cert-name">Google Play Academy – Store Listing Certificate</div>
-      </div>
-      <div class="cert-card">
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a href="https://www.udemy.com/certificate/UC-18c18c38-5c2e-4c9b-affe-2279071258e1/" target="_blank" rel="noopener" class="cert-card">
         <div class="cert-badge">🤖</div>
         <div class="cert-name">Advanced Android Bootcamp 2024 — Udemy</div>
-      </div>
-      <div class="cert-card">
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a href="https://www.udemy.com/certificate/UC-bc1f9a9d-ee78-4209-8d55-ce7dfd63d105/" target="_blank" rel="noopener" class="cert-card">
         <div class="cert-badge">🌐</div>
-        <div class="cert-name">MERN Full Stack Development</div>
-      </div>
+        <div class="cert-name">MERN Full Stack Development — Udemy</div>
+        <div class="cert-arrow">↗</div>
+      </a>
     </div>
   </div>
 </section>
@@ -922,8 +990,8 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const nums = entry.target.querySelectorAll('.stat-num');
-        const targets = [6, 4, 40, 18];
-        const suffixes = ['+', '', '%', 'K+'];
+        const targets = [6, 40, 40, 18];
+        const suffixes = ['+', '+', '%', 'K+'];
         nums.forEach((n, i) => animateCounter(n, targets[i], suffixes[i]));
         statsObserver.unobserve(entry.target);
       }
@@ -934,7 +1002,7 @@
   if (heroStats) statsObserver.observe(heroStats);
 
   // --- Typing cursor effect in hero ---
-  const titles = ['Android Engineer', 'BLE Specialist', 'ELD Systems Expert', 'Team Leader'];
+  const titles = ['Senior Android Engineer', 'Tech Lead · Team Builder', 'Staff Engineer Ready', '40+ Apps on Play Store', 'Open to Senior Roles'];
   let ti = 0, ci = 0, deleting = false;
   const typedEl = document.createElement('span');
   typedEl.style.cssText = 'border-right:2px solid var(--accent);padding-right:2px;';
