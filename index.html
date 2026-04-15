@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Security: Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'none'; base-uri 'self'; form-action 'self';">
+  <!-- Security: Referrer policy — don't leak URL to third-party sites -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- Security: Prevent MIME-type sniffing (supported in some browsers via meta) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Subhodeep Sarkar — Android Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -999,16 +1005,16 @@
     <div class="orb-ring r3"></div>
     <div class="orb-center"></div>
     <!-- Orbit 1: Kotlin, Compose (10s CW) -->
-    <div class="pl-arm o1" style="animation-delay:0s">  <div class="pl-tile pt-blue"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Kotlin</div></div>
-    <div class="pl-arm o1" style="animation-delay:-5s"> <div class="pl-tile pt-purple"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg" alt="">Compose</div></div>
+    <div class="pl-arm o1" style="animation-delay:0s">  <div class="pl-tile pt-blue"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Kotlin</div></div>
+    <div class="pl-arm o1" style="animation-delay:-5s"> <div class="pl-tile pt-purple"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg" alt="">Compose</div></div>
     <!-- Orbit 2: Android SDK, BLE, Coroutines (16s CW) -->
-    <div class="pl-arm o2" style="animation-delay:0s">      <div class="pl-tile pt-green"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-plain.svg" alt="">Android SDK</div></div>
+    <div class="pl-arm o2" style="animation-delay:0s">      <div class="pl-tile pt-green"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-plain.svg" alt="">Android SDK</div></div>
     <div class="pl-arm o2" style="animation-delay:-5.33s">  <div class="pl-tile pt-orange">📡 BLE</div></div>
-    <div class="pl-arm o2" style="animation-delay:-10.67s"> <div class="pl-tile pt-teal"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Coroutines</div></div>
+    <div class="pl-arm o2" style="animation-delay:-10.67s"> <div class="pl-tile pt-teal"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Coroutines</div></div>
     <!-- Orbit 3: Firebase, MVVM, AWS Kinesis, Hilt/DI (24s CCW) -->
-    <div class="pl-arm o3" style="animation-delay:0s">   <div class="pl-tile pt-red"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase</div></div>
+    <div class="pl-arm o3" style="animation-delay:0s">   <div class="pl-tile pt-red"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase</div></div>
     <div class="pl-arm o3" style="animation-delay:-6s">  <div class="pl-tile pt-purple">MVVM</div></div>
-    <div class="pl-arm o3" style="animation-delay:-12s"> <div class="pl-tile pt-blue"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="">AWS</div></div>
+    <div class="pl-arm o3" style="animation-delay:-12s"> <div class="pl-tile pt-blue"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="">AWS</div></div>
     <div class="pl-arm o3" style="animation-delay:-18s"> <div class="pl-tile pt-orange">Hilt / DI</div></div>
   </div>
 
@@ -1120,16 +1126,16 @@
     <div>
       <div class="skill-cat-label">Languages</div>
       <div class="tags">
-        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Kotlin</span>
-        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="">Java</span>
-        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" alt="">Dart</span>
+        <span class="tag"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Kotlin</span>
+        <span class="tag"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="">Java</span>
+        <span class="tag"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" alt="">Dart</span>
       </div>
     </div>
     <div>
       <div class="skill-cat-label">Frameworks & Jetpack</div>
       <div class="tags">
-        <span class="tag purple"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-plain.svg" alt="">Android SDK</span>
-        <span class="tag purple"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg" alt="">Jetpack Compose</span>
+        <span class="tag purple"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-plain.svg" alt="">Android SDK</span>
+        <span class="tag purple"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg" alt="">Jetpack Compose</span>
         <span class="tag purple">LiveData</span>
         <span class="tag purple">Coroutines</span>
         <span class="tag purple">Flow</span>
@@ -1149,7 +1155,7 @@
       <div class="tags">
         <span class="tag green">REST</span>
         <span class="tag green">GraphQL</span>
-        <span class="tag green"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase</span>
+        <span class="tag green"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase</span>
         <span class="tag green">AWS EC2</span>
         <span class="tag green">AWS Kinesis</span>
       </div>
@@ -1157,10 +1163,10 @@
     <div>
       <div class="skill-cat-label">DevOps & Tooling</div>
       <div class="tags">
-        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg" alt="">Git</span>
-        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bitbucket/bitbucket-original.svg" alt="">Bitbucket</span>
+        <span class="tag"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg" alt="">Git</span>
+        <span class="tag"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bitbucket/bitbucket-original.svg" alt="">Bitbucket</span>
         <span class="tag">CI/CD</span>
-        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg" alt="">Docker</span>
+        <span class="tag"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg" alt="">Docker</span>
         <span class="tag">ProGuard/R8</span>
       </div>
     </div>
@@ -1170,7 +1176,7 @@
         <span class="tag pink">Unit Testing</span>
         <span class="tag pink">Espresso</span>
         <span class="tag pink">SonarQube</span>
-        <span class="tag pink"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase Crashlytics</span>
+        <span class="tag pink"><img class="di" loading="lazy" onerror="this.style.display='none'" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase Crashlytics</span>
       </div>
     </div>
     <div>
@@ -1724,6 +1730,14 @@
 </footer>
 
 <script>
+  // Security: enforce noopener noreferrer on every external link
+  document.querySelectorAll('a[target="_blank"]').forEach(a => {
+    a.rel = 'noopener noreferrer';
+  });
+
+  // Security: prevent the page from being framed (clickjacking defence)
+  if (window.top !== window.self) { window.top.location = window.self.location; }
+
   // --- Hamburger ---
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
