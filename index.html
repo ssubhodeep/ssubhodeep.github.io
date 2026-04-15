@@ -261,13 +261,25 @@
 
     /* ---- EXPERIENCE ---- */
     #experience { background: var(--bg2); }
-    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline { position: relative; padding-left: 2.5rem; --line-progress: 0; }
+    /* Faded background track */
     .timeline::before {
       content: '';
       position: absolute; left: 0; top: 8px; bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--accent), var(--accent2), transparent);
+      background: linear-gradient(180deg, rgba(79,142,247,0.15), rgba(124,58,237,0.1), transparent);
       border-radius: 1px;
+    }
+    /* Animated fill line — draws downward as user scrolls */
+    .timeline::after {
+      content: '';
+      position: absolute; left: 0; top: 8px;
+      width: 2px; height: calc(100% - 8px);
+      background: linear-gradient(180deg, var(--accent), var(--accent2), #ec4899);
+      border-radius: 1px;
+      transform-origin: top center;
+      transform: scaleY(var(--line-progress, 0));
+      box-shadow: 0 0 10px rgba(79,142,247,0.55), 0 0 20px rgba(79,142,247,0.2);
     }
     .timeline-item {
       position: relative;
@@ -498,9 +510,430 @@
       h1 { font-size: 2.5rem; }
       .hero-stats { gap: 1.5rem; }
     }
+
+    /* ======== PREMIUM VISUAL ENHANCEMENTS ======== */
+
+    /* Scroll progress bar */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; z-index: 9999;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), #ec4899, var(--accent));
+      background-size: 200% 100%;
+      width: 0%; pointer-events: none;
+      box-shadow: 0 0 10px rgba(79,142,247,0.5);
+      animation: progress-shimmer 3s linear infinite;
+    }
+    @keyframes progress-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Cursor glow follower */
+    .cursor-glow {
+      position: fixed; pointer-events: none; z-index: 1;
+      width: 520px; height: 520px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,142,247,0.055) 0%, transparent 65%);
+      transform: translate(-50%, -50%);
+      left: -1000px; top: -1000px;
+      will-change: left, top;
+      transition: left 0.12s ease, top 0.12s ease;
+    }
+
+    /* Hero canvas */
+    #hero-canvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Animated hero grid pan */
+    @keyframes grid-pan {
+      0%   { background-position: 0 0, 0 0; }
+      100% { background-position: 0 60px, 60px 0; }
+    }
+    .hero-grid { animation: grid-pan 22s linear infinite; }
+
+    /* Animated gradient text */
+    .gradient-text {
+      background-size: 250% 250%;
+      animation: gradient-shift 6s ease infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50%       { background-position: 100% 50%; }
+    }
+
+    /* Nav logo animated gradient */
+    .nav-logo {
+      background-size: 200% 100%;
+      animation: gradient-shift 4s ease infinite;
+    }
+
+    /* Hero badge shine sweep */
+    .hero-badge { overflow: hidden; }
+    .hero-badge::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 45%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+      transform: skewX(-20deg);
+      animation: badge-shine 5s ease-in-out infinite;
+    }
+    @keyframes badge-shine {
+      0%, 65% { left: -100%; }
+      80%, 100% { left: 160%; }
+    }
+
+    /* Floating stats */
+    @keyframes stat-float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-6px); }
+    }
+    .stat-item { animation: stat-float 3.5s ease-in-out infinite; }
+    .stat-item:nth-child(2) { animation-delay: -1.2s; }
+    .stat-item:nth-child(3) { animation-delay: -2.5s; }
+
+    /* Card 3D setup + inner spotlight */
+    .project-card, .edu-card {
+      will-change: transform;
+      --light-x: 50%; --light-y: 50%; --light-opacity: 0;
+    }
+    .project-card::after, .edu-card::after {
+      content: '';
+      position: absolute; inset: 0; border-radius: inherit;
+      background: radial-gradient(circle at var(--light-x) var(--light-y), rgba(255,255,255,0.065) 0%, transparent 60%);
+      opacity: var(--light-opacity);
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    /* Pre-connection: subtle idle pulse */
+    .timeline-item.visible .timeline-dot {
+      animation: dot-idle 3s ease-in-out infinite;
+    }
+    @keyframes dot-idle {
+      0%, 100% { box-shadow: 0 0 6px rgba(79,142,247,0.35); }
+      50%       { box-shadow: 0 0 14px rgba(79,142,247,0.6); }
+    }
+
+    /* Connected: filled dot + spark burst + steady strong pulse */
+    .timeline-dot.connected {
+      background: var(--accent) !important;
+      border-color: rgba(255,255,255,0.85) !important;
+      animation: dot-spark 0.55s cubic-bezier(0.22,1,0.36,1), dot-connected-pulse 2.5s ease-in-out 0.55s infinite !important;
+    }
+    @keyframes dot-spark {
+      0%   { transform: scale(1);   box-shadow: 0 0 0 0 rgba(79,142,247,0); }
+      45%  { transform: scale(2.4); box-shadow: 0 0 30px 10px rgba(79,142,247,0.75), 0 0 60px rgba(124,58,237,0.4); }
+      100% { transform: scale(1);   box-shadow: 0 0 18px rgba(79,142,247,0.7); }
+    }
+    @keyframes dot-connected-pulse {
+      0%, 100% { box-shadow: 0 0 12px rgba(79,142,247,0.65), 0 0 28px rgba(79,142,247,0.2); }
+      50%       { box-shadow: 0 0 26px rgba(79,142,247,1),   0 0 52px rgba(124,58,237,0.4); }
+    }
+
+    /* Button primary spotlight */
+    .btn-primary { --btn-x: 50%; --btn-y: 50%; }
+    .btn-primary::after {
+      content: '';
+      position: absolute; inset: 0; border-radius: inherit;
+      background: radial-gradient(circle at var(--btn-x) var(--btn-y), rgba(255,255,255,0.22), transparent 65%);
+      opacity: 0; transition: opacity 0.25s; pointer-events: none;
+    }
+    .btn-primary:hover::after { opacity: 1; }
+
+    /* Skills section subtle dot grid */
+    #skills { position: relative; overflow: hidden; }
+    #skills::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(79,142,247,0.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none; z-index: 0;
+    }
+    .skills-grid, #skills > .reveal { position: relative; z-index: 1; }
+
+    /* Tag hover glow */
+    .tag:hover          { box-shadow: 0 4px 18px rgba(79,142,247,0.22); }
+    .tag.green:hover    { box-shadow: 0 4px 18px rgba(74,222,128,0.2); }
+    .tag.purple:hover   { box-shadow: 0 4px 18px rgba(167,139,250,0.2); }
+    .tag.orange:hover   { box-shadow: 0 4px 18px rgba(251,146,60,0.2); }
+    .tag.pink:hover     { box-shadow: 0 4px 18px rgba(236,72,153,0.2); }
+
+    /* Nav active class */
+    .nav-links a.nav-active            { color: var(--text) !important; }
+    .nav-links a.nav-active::after     { width: 100% !important; }
+
+    /* Contact card hover glow */
+    .contact-card { transition: box-shadow 0.4s; }
+    .contact-card:hover {
+      box-shadow: 0 0 80px rgba(79,142,247,0.09), 0 30px 60px rgba(0,0,0,0.3);
+    }
+
+    /* Enhanced orb motion */
+    @keyframes orb-move {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(45px, 28px) scale(1.12); }
+    }
+
+    /* Footer gradient */
+    footer { background: linear-gradient(180deg, var(--bg), #090b0f); }
+
+    /* Custom scrollbar gradient */
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #6ea8ff, #9d6ef8);
+    }
+
+    /* Disable heavy effects on mobile */
+    @media (max-width: 768px) {
+      .cursor-glow  { display: none; }
+      #hero-canvas  { display: none; }
+      .stat-item    { animation: none; }
+    }
+
+    /* ======== ORBIT SYSTEM ======== */
+    .orbit-scene {
+      position: absolute;
+      right: -1%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 560px; height: 560px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Visual dashed orbit rings */
+    .orb-ring {
+      position: absolute; top: 50%; left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .orb-ring.r1 {
+      width: 240px; height: 240px;
+      border: 1px dashed rgba(79,142,247,0.22);
+      animation: ring-breathe 5s ease-in-out infinite;
+    }
+    .orb-ring.r2 {
+      width: 380px; height: 380px;
+      border: 1px dashed rgba(124,58,237,0.17);
+      animation: ring-breathe 7s ease-in-out infinite;
+      animation-delay: -2s;
+    }
+    .orb-ring.r3 {
+      width: 520px; height: 520px;
+      border: 1px dashed rgba(79,142,247,0.11);
+      animation: ring-breathe 9s ease-in-out infinite;
+      animation-delay: -4s;
+    }
+    @keyframes ring-breathe {
+      0%,100% { opacity: 0.55; transform: translate(-50%,-50%) scale(1); }
+      50%      { opacity: 1;   transform: translate(-50%,-50%) scale(1.015); }
+    }
+
+    /* Central glowing dot */
+    .orb-center {
+      position: absolute; top: 50%; left: 50%;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent);
+      transform: translate(-50%,-50%);
+      box-shadow: 0 0 14px var(--accent), 0 0 32px rgba(79,142,247,0.45);
+      animation: center-pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes center-pulse {
+      0%,100% { transform: translate(-50%,-50%) scale(1);   box-shadow: 0 0 14px var(--accent); }
+      50%      { transform: translate(-50%,-50%) scale(1.6); box-shadow: 0 0 26px var(--accent), 0 0 55px rgba(79,142,247,0.4); }
+    }
+
+    /* Planet arms — zero-size rotating pivot at orbit centre */
+    .pl-arm {
+      position: absolute; top: 50%; left: 50%;
+      width: 0; height: 0;
+      will-change: transform;
+    }
+    .o1 { animation: orbit-cw  10s linear infinite; }
+    .o2 { animation: orbit-cw  16s linear infinite; }
+    .o3 { animation: orbit-ccw 24s linear infinite; }
+    @keyframes orbit-cw  { to { transform: rotate( 360deg); } }
+    @keyframes orbit-ccw { to { transform: rotate(-360deg); } }
+
+    /* Tiles sit at orbit radius, counter-rotating to stay upright */
+    .pl-tile {
+      position: absolute; left: 50%;
+      white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.73rem; font-weight: 600;
+      padding: 0.28rem 0.78rem; border-radius: 8px;
+      backdrop-filter: blur(14px);
+      letter-spacing: 0.01em;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+    }
+    .o1 .pl-tile { top: -120px; animation: counter-cw  10s linear infinite; }
+    .o2 .pl-tile { top: -190px; animation: counter-cw  16s linear infinite; }
+    .o3 .pl-tile { top: -260px; animation: counter-ccw 24s linear infinite; }
+    @keyframes counter-cw  {
+      from { transform: translateX(-50%) rotate(  0deg); }
+      to   { transform: translateX(-50%) rotate(-360deg); }
+    }
+    @keyframes counter-ccw {
+      from { transform: translateX(-50%) rotate(  0deg); }
+      to   { transform: translateX(-50%) rotate( 360deg); }
+    }
+
+    /* Planet tile colour variants */
+    .pt-blue   { background: rgba(79,142,247,0.16);  color: #7eb3ff; border: 1px solid rgba(79,142,247,0.4); }
+    .pt-purple { background: rgba(167,139,250,0.15); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.4); }
+    .pt-green  { background: rgba(74,222,128,0.13);  color: #6ee7a0; border: 1px solid rgba(74,222,128,0.4); }
+    .pt-orange { background: rgba(251,146,60,0.13);  color: #fda96c; border: 1px solid rgba(251,146,60,0.4); }
+    .pt-teal   { background: rgba(34,211,238,0.12);  color: #67e8f9; border: 1px solid rgba(34,211,238,0.4); }
+    .pt-red    { background: rgba(239,68,68,0.12);   color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+
+    /* ======== ZEN CODE WINDOW ======== */
+    .zen-code-window {
+      position: absolute;
+      right: 3%;
+      top: 52%;
+      transform: translateY(-40%) rotate(-4deg);
+      width: 295px;
+      background: rgba(12,14,20,0.8);
+      border: 1px solid rgba(79,142,247,0.22);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(24px);
+      z-index: 0;
+      opacity: 0.5;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    /* macOS-style title bar */
+    .zen-win-bar {
+      display: flex; align-items: center; gap: 5px;
+      padding: 7px 10px;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .zw-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .dot-r { background: #ff5f56; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #28ca41; }
+    .zw-filename {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; color: rgba(255,255,255,0.4);
+      margin-left: 4px; letter-spacing: 0.02em;
+    }
+
+    /* Code body */
+    .zen-win-body {
+      padding: 8px 0 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.67rem; line-height: 1.7;
+      position: relative; overflow: hidden;
+    }
+    /* Fade at bottom suggesting more code below */
+    .zen-win-body::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+      background: linear-gradient(transparent, rgba(12,14,20,0.8));
+      pointer-events: none; z-index: 1;
+    }
+    .zen-line {
+      display: flex; align-items: baseline;
+      padding: 0 8px 0 0;
+      white-space: nowrap;
+    }
+    .zl-num {
+      min-width: 26px; text-align: right;
+      color: rgba(255,255,255,0.18);
+      padding-right: 10px; font-size: 0.6rem;
+      flex-shrink: 0; user-select: none;
+    }
+
+    /* Syntax colours — JetBrains Darcula-inspired */
+    .zc-cm  { color: #6a9955; }
+    .zc-ann { color: #bbb529; }
+    .zc-kw  { color: #cf8e6d; }
+    .zc-cls { color: #ffc66d; }
+    .zc-fn  { color: #56a8f5; }
+    .zc-tp  { color: #4ec9b0; }
+    .zc-vr  { color: #9cdcfe; }
+    .zc-pm  { color: #9cdcfe; }
+    .zc-pl  { color: rgba(200,210,230,0.62); }
+
+    /* Blinking cursor at end of code */
+    .zc-cursor {
+      display: inline-block;
+      width: 1.5px; height: 0.85em;
+      background: var(--accent);
+      vertical-align: text-bottom;
+      margin-left: 1px;
+      animation: cur-blink 1.2s step-end infinite;
+    }
+    @keyframes cur-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ---- DEVICON IMAGES ---- */
+    .di {
+      width: 14px; height: 14px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Make tags flex so icon + text align on one line */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    /* Slightly larger icons inside orbit planet tiles */
+    .pl-tile .di {
+      width: 15px; height: 15px;
+    }
+    /* AWS wordmark SVG is wide — constrain it */
+    .pl-tile .di[src*="amazonwebservices"] {
+      width: 22px; height: 15px;
+      object-fit: contain;
+    }
+
+    /* ---- BACK TO TOP ---- */
+    #back-to-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none; cursor: pointer; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(79,142,247,0.4);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s;
+      pointer-events: none;
+    }
+    #back-to-top.visible {
+      opacity: 1; transform: translateY(0);
+      pointer-events: auto;
+    }
+    #back-to-top:hover {
+      box-shadow: 0 6px 28px rgba(79,142,247,0.6);
+      transform: translateY(-2px);
+    }
+
+    /* Scale down on medium screens */
+    @media (max-width: 1100px) {
+      .orbit-scene     { right: -8%; transform: translateY(-50%) scale(0.75); }
+      .zen-code-window { opacity: 0.28; right: 0; transform: translateY(-40%) rotate(-4deg) scale(0.82); }
+    }
+    /* Hide below ~960px to avoid content overlap */
+    @media (max-width: 960px) {
+      .orbit-scene, .zen-code-window { display: none; }
+    }
   </style>
 </head>
 <body>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress"></div>
+<!-- Cursor glow -->
+<div class="cursor-glow"></div>
 
 <!-- Ambient orbs -->
 <div class="orb orb1"></div>
@@ -525,8 +958,60 @@
 
 <!-- HERO -->
 <section id="hero">
+  <canvas id="hero-canvas"></canvas>
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+
+  <!-- Zen code window — Android Studio Darcula style -->
+  <div class="zen-code-window" aria-hidden="true">
+    <div class="zen-win-bar">
+      <span class="zw-dot dot-r"></span><span class="zw-dot dot-y"></span><span class="zw-dot dot-g"></span>
+      <span class="zw-filename">EldViewModel.kt</span>
+    </div>
+    <div class="zen-win-body">
+      <div class="zen-line"><span class="zl-num">1</span><span class="zc-cm">// FMCSA Compliant · BLE Integration</span></div>
+      <div class="zen-line"><span class="zl-num">2</span><span class="zc-ann">@HiltViewModel</span></div>
+      <div class="zen-line"><span class="zl-num">3</span><span class="zc-kw">class </span><span class="zc-cls">EldViewModel</span><span class="zc-pl"> @Inject constructor(</span></div>
+      <div class="zen-line"><span class="zl-num">4</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-kw">private val </span><span class="zc-vr">bleRepo</span><span class="zc-pl">: </span><span class="zc-tp">BleRepository</span><span class="zc-pl">,</span></div>
+      <div class="zen-line"><span class="zl-num">5</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-kw">private val </span><span class="zc-vr">hosRepo</span><span class="zc-pl">: </span><span class="zc-tp">HosRepository</span></div>
+      <div class="zen-line"><span class="zl-num">6</span><span class="zc-pl">) : </span><span class="zc-tp">ViewModel</span><span class="zc-pl">() {</span></div>
+      <div class="zen-line"><span class="zl-num">7</span>&nbsp;</div>
+      <div class="zen-line"><span class="zl-num">8</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-kw">private val </span><span class="zc-vr">_uiState</span><span class="zc-pl"> =</span></div>
+      <div class="zen-line"><span class="zl-num">9</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-fn">MutableStateFlow</span><span class="zc-pl">(</span><span class="zc-tp">EldUiState</span><span class="zc-pl">())</span></div>
+      <div class="zen-line"><span class="zl-num">10</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-kw">val </span><span class="zc-vr">uiState</span><span class="zc-pl"> = </span><span class="zc-vr">_uiState</span><span class="zc-pl">.</span><span class="zc-fn">asStateFlow</span><span class="zc-pl">()</span></div>
+      <div class="zen-line"><span class="zl-num">11</span>&nbsp;</div>
+      <div class="zen-line"><span class="zl-num">12</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-kw">fun </span><span class="zc-fn">connectDevice</span><span class="zc-pl">(</span><span class="zc-pm">id</span><span class="zc-pl">: </span><span class="zc-tp">String</span><span class="zc-pl">) {</span></div>
+      <div class="zen-line"><span class="zl-num">13</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-fn">viewModelScope</span><span class="zc-pl">.</span><span class="zc-fn">launch</span><span class="zc-pl"> {</span></div>
+      <div class="zen-line"><span class="zl-num">14</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-vr">bleRepo</span><span class="zc-pl">.</span><span class="zc-fn">connect</span><span class="zc-pl">(</span><span class="zc-pm">id</span><span class="zc-pl">)</span></div>
+      <div class="zen-line"><span class="zl-num">15</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span class="zc-fn">collect</span><span class="zc-pl"> {</span></div>
+      <div class="zen-line"><span class="zl-num">16</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="zc-fn">handleBleEvent</span><span class="zc-pl">(it)</span></div>
+      <div class="zen-line"><span class="zl-num">17</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+      <div class="zen-line"><span class="zl-num">18</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+      <div class="zen-line"><span class="zl-num">19</span><span class="zc-pl">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="zc-cursor"></span></div>
+      <div class="zen-line"><span class="zl-num">20</span><span class="zc-pl">}</span></div>
+    </div>
+  </div>
+
+  <!-- Tech orbit system — 3 orbital rings with 9 planet tiles -->
+  <div class="orbit-scene" aria-hidden="true">
+    <div class="orb-ring r1"></div>
+    <div class="orb-ring r2"></div>
+    <div class="orb-ring r3"></div>
+    <div class="orb-center"></div>
+    <!-- Orbit 1: Kotlin, Compose (10s CW) -->
+    <div class="pl-arm o1" style="animation-delay:0s">  <div class="pl-tile pt-blue"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Kotlin</div></div>
+    <div class="pl-arm o1" style="animation-delay:-5s"> <div class="pl-tile pt-purple"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg" alt="">Compose</div></div>
+    <!-- Orbit 2: Android SDK, BLE, Coroutines (16s CW) -->
+    <div class="pl-arm o2" style="animation-delay:0s">      <div class="pl-tile pt-green"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-plain.svg" alt="">Android SDK</div></div>
+    <div class="pl-arm o2" style="animation-delay:-5.33s">  <div class="pl-tile pt-orange">📡 BLE</div></div>
+    <div class="pl-arm o2" style="animation-delay:-10.67s"> <div class="pl-tile pt-teal"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Coroutines</div></div>
+    <!-- Orbit 3: Firebase, MVVM, AWS Kinesis, Hilt/DI (24s CCW) -->
+    <div class="pl-arm o3" style="animation-delay:0s">   <div class="pl-tile pt-red"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase</div></div>
+    <div class="pl-arm o3" style="animation-delay:-6s">  <div class="pl-tile pt-purple">MVVM</div></div>
+    <div class="pl-arm o3" style="animation-delay:-12s"> <div class="pl-tile pt-blue"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="">AWS</div></div>
+    <div class="pl-arm o3" style="animation-delay:-18s"> <div class="pl-tile pt-orange">Hilt / DI</div></div>
+  </div>
+
   <div class="hero-content">
     <div class="hero-badge">
       <span class="dot"></span>
@@ -635,16 +1120,16 @@
     <div>
       <div class="skill-cat-label">Languages</div>
       <div class="tags">
-        <span class="tag">Kotlin</span>
-        <span class="tag">Java</span>
-        <span class="tag">Dart</span>
+        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="">Kotlin</span>
+        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="">Java</span>
+        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" alt="">Dart</span>
       </div>
     </div>
     <div>
       <div class="skill-cat-label">Frameworks & Jetpack</div>
       <div class="tags">
-        <span class="tag purple">Android SDK</span>
-        <span class="tag purple">Jetpack Compose</span>
+        <span class="tag purple"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-plain.svg" alt="">Android SDK</span>
+        <span class="tag purple"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg" alt="">Jetpack Compose</span>
         <span class="tag purple">LiveData</span>
         <span class="tag purple">Coroutines</span>
         <span class="tag purple">Flow</span>
@@ -664,7 +1149,7 @@
       <div class="tags">
         <span class="tag green">REST</span>
         <span class="tag green">GraphQL</span>
-        <span class="tag green">Firebase</span>
+        <span class="tag green"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase</span>
         <span class="tag green">AWS EC2</span>
         <span class="tag green">AWS Kinesis</span>
       </div>
@@ -672,10 +1157,10 @@
     <div>
       <div class="skill-cat-label">DevOps & Tooling</div>
       <div class="tags">
-        <span class="tag">Git</span>
-        <span class="tag">Bitbucket</span>
+        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg" alt="">Git</span>
+        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bitbucket/bitbucket-original.svg" alt="">Bitbucket</span>
         <span class="tag">CI/CD</span>
-        <span class="tag">Docker</span>
+        <span class="tag"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg" alt="">Docker</span>
         <span class="tag">ProGuard/R8</span>
       </div>
     </div>
@@ -685,7 +1170,7 @@
         <span class="tag pink">Unit Testing</span>
         <span class="tag pink">Espresso</span>
         <span class="tag pink">SonarQube</span>
-        <span class="tag pink">Firebase Crashlytics</span>
+        <span class="tag pink"><img class="di" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase Crashlytics</span>
       </div>
     </div>
     <div>
@@ -1228,6 +1713,11 @@
   </div>
 </section>
 
+<!-- BACK TO TOP -->
+<button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Subhodeep Sarkar · Built with care · Kolkata, India</p>
@@ -1315,18 +1805,159 @@
   }
   setTimeout(type, 1200);
 
-  // --- Active nav link on scroll ---
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  // ======== PREMIUM ENHANCEMENTS ========
+
+  // Timeline — draw line + light up dots as line reaches them
+  const timelineEl  = document.querySelector('.timeline');
+  const timelineDots = document.querySelectorAll('.timeline-dot');
+  function updateTimeline() {
+    if (!timelineEl) return;
+    const rect     = timelineEl.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1,
+      (window.innerHeight * 0.75 - rect.top) / rect.height
+    ));
+    timelineEl.style.setProperty('--line-progress', progress);
+
+    const lineReach = rect.height * progress; // px the line tip has travelled
+
+    timelineDots.forEach(dot => {
+      const dotOffset = dot.getBoundingClientRect().top - rect.top + 7; // centre of dot
+      const shouldConnect = lineReach >= dotOffset;
+      if (shouldConnect && !dot.classList.contains('connected')) {
+        dot.classList.add('connected');
+        void dot.offsetWidth; // force reflow so spark animation replays
+      } else if (!shouldConnect && dot.classList.contains('connected')) {
+        dot.classList.remove('connected');
+      }
+    });
+  }
+  window.addEventListener('scroll', updateTimeline, { passive: true });
+  updateTimeline();
+
+  // Back to top visibility
+  const btt = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#'+current ? 'var(--text)' : '';
-    });
+    btt.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
+
+  // Scroll progress bar
+  const scrollBar = document.getElementById('scroll-progress');
+  function syncScrollBar() {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    if (total > 0) scrollBar.style.width = (window.scrollY / total * 100) + '%';
+  }
+  window.addEventListener('scroll', syncScrollBar, { passive: true });
+  syncScrollBar();
+
+  // Cursor glow tracker
+  const cursorGlow = document.querySelector('.cursor-glow');
+  document.addEventListener('mousemove', e => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top  = e.clientY + 'px';
+  });
+
+  // Hero canvas — floating particle constellation
+  (function () {
+    const c = document.getElementById('hero-canvas');
+    if (!c) return;
+    const cx = c.getContext('2d');
+    let pts = [], raf = null;
+
+    function resize() { c.width = c.offsetWidth; c.height = c.offsetHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function makePt() {
+      return {
+        x: Math.random() * c.width,  y: Math.random() * c.height,
+        r: Math.random() * 1.3 + 0.2,
+        vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
+        a: Math.random() * 0.45 + 0.07,
+        col: Math.random() > 0.55 ? '124,58,237' : '79,142,247'
+      };
+    }
+    for (let i = 0; i < 75; i++) pts.push(makePt());
+
+    function frame() {
+      cx.clearRect(0, 0, c.width, c.height);
+      // Draw connecting lines
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d = Math.hypot(dx, dy);
+          if (d < 125) {
+            cx.beginPath();
+            cx.moveTo(pts[i].x, pts[i].y);
+            cx.lineTo(pts[j].x, pts[j].y);
+            cx.strokeStyle = `rgba(79,142,247,${(1 - d / 125) * 0.075})`;
+            cx.lineWidth = 0.6;
+            cx.stroke();
+          }
+        }
+      }
+      // Draw dots
+      pts.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = c.width;  if (p.x > c.width)  p.x = 0;
+        if (p.y < 0) p.y = c.height; if (p.y > c.height) p.y = 0;
+        cx.beginPath();
+        cx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        cx.fillStyle = `rgba(${p.col},${p.a})`;
+        cx.fill();
+      });
+      raf = requestAnimationFrame(frame);
+    }
+
+    // Only animate while hero is on screen
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { if (!raf) frame(); }
+      else { cancelAnimationFrame(raf); raf = null; }
+    }).observe(document.getElementById('hero'));
+  })();
+
+  // Card 3D tilt with inner spotlight
+  document.querySelectorAll('.project-card, .edu-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'border-color 0.25s, box-shadow 0.25s';
+    });
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const xp = (e.clientX - r.left) / r.width;
+      const yp = (e.clientY - r.top)  / r.height;
+      card.style.transform = `perspective(900px) rotateX(${(yp - 0.5) * -11}deg) rotateY(${(xp - 0.5) * 11}deg) translateY(-5px)`;
+      card.style.setProperty('--light-x', (xp * 100) + '%');
+      card.style.setProperty('--light-y', (yp * 100) + '%');
+      card.style.setProperty('--light-opacity', '1');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = '';
+      card.style.transform  = '';
+      card.style.setProperty('--light-opacity', '0');
+    });
+  });
+
+  // Button primary — spotlight follows cursor
+  document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      btn.style.setProperty('--btn-x', ((e.clientX - r.left) / r.width  * 100) + '%');
+      btn.style.setProperty('--btn-y', ((e.clientY - r.top)  / r.height * 100) + '%');
+    });
+  });
+
+  // Nav active state (class-based, no inline colour fighting)
+  const navSections = document.querySelectorAll('section[id]');
+  const allNavLinks = document.querySelectorAll('.nav-links a');
+  function syncNav() {
+    let curr = '';
+    navSections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) curr = s.id; });
+    allNavLinks.forEach(a => {
+      a.classList.toggle('nav-active', a.getAttribute('href') === '#' + curr);
+      a.style.color = '';
+    });
+  }
+  window.addEventListener('scroll', syncNav, { passive: true });
+  syncNav();
 </script>
 </body>
 </html>
