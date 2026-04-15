@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Security: Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https://cdn.jsdelivr.net https://img.youtube.com; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'none'; base-uri 'self'; form-action 'self';">
   <!-- Security: Referrer policy — don't leak URL to third-party sites -->
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Security: Prevent MIME-type sniffing (supported in some browsers via meta) -->
@@ -425,8 +425,103 @@
     .cert-arrow { margin-left: auto; font-size: 0.75rem; color: var(--muted); flex-shrink: 0; transition: color 0.2s; }
     .cert-card:hover .cert-arrow { color: #6ee7a0; }
 
+    /* ---- HOBBIES ---- */
+    #hobbies {
+      background: var(--bg);
+      position: relative;
+    }
+    #hobbies::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(255,0,0,0.045) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .yt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.4rem;
+    }
+    .yt-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, border-color 0.3s;
+      opacity: 0; transform: translateY(20px);
+    }
+    .yt-card.visible { opacity: 1; transform: translateY(0); }
+    .yt-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 24px 52px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,60,60,0.2);
+      border-color: rgba(255,60,60,0.28);
+    }
+    .yt-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--bg3);
+    }
+    .yt-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), filter 0.35s;
+    }
+    .yt-card:hover .yt-thumb img {
+      transform: scale(1.07);
+      filter: brightness(0.6);
+    }
+    .yt-play {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);
+      transition: background 0.3s;
+    }
+    .yt-card:hover .yt-play {
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%);
+    }
+    .yt-play svg {
+      width: 58px; height: 58px;
+      filter: drop-shadow(0 4px 18px rgba(0,0,0,0.7));
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.25s;
+      opacity: 0.9;
+    }
+    .yt-card:hover .yt-play svg {
+      transform: scale(1.18);
+      opacity: 1;
+    }
+    .yt-info { padding: 1rem 1.2rem 1.3rem; }
+    .yt-title {
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--text); line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .yt-meta {
+      margin-top: 0.5rem;
+      font-size: 0.76rem; color: var(--muted);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .yt-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+    .yt-cta-row {
+      margin-top: 3rem;
+      display: flex; justify-content: center;
+    }
+    .btn-yt {
+      background: linear-gradient(135deg, #ff2020, #cc0000);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255,0,0,0.3);
+    }
+    .btn-yt:hover {
+      box-shadow: 0 6px 30px rgba(255,0,0,0.55);
+      opacity: 0.92;
+    }
+
     /* ---- CONTACT ---- */
-    #contact { background: var(--bg); }
+    #contact { background: var(--bg2); }
     .contact-card {
       max-width: 640px;
       background: var(--card);
@@ -954,6 +1049,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
+    <li><a href="#hobbies">Hobbies</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="mailto:subhodeepsarkar909@gmail.com" class="nav-cta">Hire Me</a>
@@ -1678,6 +1774,100 @@
         <div class="cert-arrow">↗</div>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <div class="reveal">
+    <div class="section-label">Beyond Code</div>
+    <h2 class="section-title">Life Outside the Terminal</h2>
+    <p class="section-desc">When I'm not writing Kotlin, I'm out on my bike exploring India — from the Himalayas to the coast. Follow the journey on <strong style="color:var(--text)">Shy Subho Vlogs</strong>.</p>
+  </div>
+  <div class="yt-grid">
+
+    <!-- Video 1 -->
+    <a class="yt-card reveal" href="https://youtu.be/0r9VabDbFcA" target="_blank" rel="noopener noreferrer">
+      <div class="yt-thumb">
+        <img src="https://img.youtube.com/vi/0r9VabDbFcA/maxresdefault.jpg"
+             alt="GURUDONGMAR LAKE | NORTH SIKKIM WORST OFF-ROAD | EP-04 | 4K"
+             loading="lazy"
+             onerror="this.src='https://img.youtube.com/vi/0r9VabDbFcA/hqdefault.jpg'">
+        <div class="yt-play">
+          <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
+            <path d="M45 24 27 14v20" fill="#fff"/>
+          </svg>
+        </div>
+      </div>
+      <div class="yt-info">
+        <div class="yt-title">GURUDONGMAR LAKE | NORTH SIKKIM WORST OFF-ROAD | EP-04 | 4K</div>
+        <div class="yt-meta">
+          <span>Shy Subho Vlogs</span>
+          <span class="yt-dot"></span>
+          <span>North Sikkim</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Video 2 -->
+    <a class="yt-card reveal" href="https://youtu.be/4BABJqHUoOg" target="_blank" rel="noopener noreferrer">
+      <div class="yt-thumb">
+        <img src="https://img.youtube.com/vi/4BABJqHUoOg/maxresdefault.jpg"
+             alt="New Xpulse2004v finally modified | Details #xpulse2004v"
+             loading="lazy"
+             onerror="this.src='https://img.youtube.com/vi/4BABJqHUoOg/hqdefault.jpg'">
+        <div class="yt-play">
+          <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
+            <path d="M45 24 27 14v20" fill="#fff"/>
+          </svg>
+        </div>
+      </div>
+      <div class="yt-info">
+        <div class="yt-title">New Xpulse 200 4V finally modified | Details #xpulse2004v</div>
+        <div class="yt-meta">
+          <span>Shy Subho Vlogs</span>
+          <span class="yt-dot"></span>
+          <span>Bike Mods</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Video 3 -->
+    <a class="yt-card reveal" href="https://youtu.be/uv6KWXEN8Mw" target="_blank" rel="noopener noreferrer">
+      <div class="yt-thumb">
+        <img src="https://img.youtube.com/vi/uv6KWXEN8Mw/maxresdefault.jpg"
+             alt="10 hour bike ride Kolkata to Puri | Odisha Ride | EP - 1 | 4K"
+             loading="lazy"
+             onerror="this.src='https://img.youtube.com/vi/uv6KWXEN8Mw/hqdefault.jpg'">
+        <div class="yt-play">
+          <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
+            <path d="M45 24 27 14v20" fill="#fff"/>
+          </svg>
+        </div>
+      </div>
+      <div class="yt-info">
+        <div class="yt-title">10 hour bike ride Kolkata to Puri | Odisha Ride | EP - 1 | 4K</div>
+        <div class="yt-meta">
+          <span>Shy Subho Vlogs</span>
+          <span class="yt-dot"></span>
+          <span>Odisha</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="yt-cta-row reveal">
+    <a href="https://www.youtube.com/@ShySubhoVlogs" target="_blank" rel="noopener noreferrer" class="btn btn-yt">
+      <svg width="16" height="16" viewBox="0 0 68 48" style="vertical-align:middle">
+        <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#fff" fill-opacity="0.9"/>
+        <path d="M45 24 27 14v20" fill="#ff0000"/>
+      </svg>
+      View Channel
+    </a>
   </div>
 </section>
 
