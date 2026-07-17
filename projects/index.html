@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://img.youtube.com; font-src https://fonts.gstatic.com; connect-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="40+ Android apps shipped to production — FMCSA-compliant fleet apps, BLE integrations, fintech, and social platforms. Projects by Subhodeep Sarkar.">
+<title>Projects · Subhodeep Sarkar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css?v=5">
+<link rel="stylesheet" href="../assets/css/pages.css?v=5">
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header class="site-nav">
+  <a href="../index.html" class="nav-logo">subhodeep<span>.dev</span></a>
+  <nav class="nav-right">
+    <ul class="nav-links">
+      <li><a href="../projects/index.html"><span class="n">01</span>Projects</a></li>
+      <li><a href="../work/index.html"><span class="n">02</span>Work</a></li>
+      <li><a href="../about/index.html"><span class="n">03</span>About</a></li>
+    </ul>
+    <a href="../resume.pdf" download class="nav-cta desktop-only">Résumé</a>
+    <a href="../contact/index.html" class="nav-cta desktop-only">Get in touch</a>
+    <div class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../projects/index.html"><span class="n">01</span>Projects</a>
+  <a href="../work/index.html"><span class="n">02</span>Work</a>
+  <a href="../about/index.html"><span class="n">03</span>About</a>
+  <a href="../contact/index.html"><span class="n">04</span>Contact</a>
+  <a href="../resume.pdf" download><span class="n">↓</span>Résumé</a>
+  <div class="mm-footer">
+    <a href="https://github.com/ssubhodeep" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ssubhodeep/" target="_blank">LinkedIn</a>
+    <a href="mailto:subhodeepsarkar909@gmail.com">Email</a>
+  </div>
+</div>
+
+<main id="main-content">
+
+  <section class="container" style="padding-top:8rem;padding-bottom:3rem;">
+    <div class="eyebrow reveal"><span class="num">01</span> Selected & shipped</div>
+    <h1 class="reveal">Things people actually use.</h1>
+    <p class="lede reveal" style="margin-top:1.2rem;">40+ Android apps live on the Play Store, across enterprise fleet management, fintech, social, and freelance client work.</p>
+  </section>
+
+  <section class="container" style="padding-top:0;padding-bottom:3rem;">
+    <div class="stat-banner reveal">
+      <div class="stat-grid">
+        <div>
+          <div class="stat-num">40+</div>
+          <div class="stat-label">Apps live on the Play Store</div>
+        </div>
+        <div>
+          <div class="stat-num">0%</div>
+          <div class="stat-label">ANR &amp; crash rate, 5,000+ daily users</div>
+        </div>
+        <div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Freelance projects delivered end to end</div>
+        </div>
+        <div>
+          <div class="stat-num">18,000+</div>
+          <div class="stat-label">ATMs secured by one B2B app</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- ELD MANDATE -->
+  <section class="container">
+    <div class="company-band reveal">
+      <span class="cb-label">ELD Mandate Biz · Current</span>
+      <hr class="hr" style="flex:1;">
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="card project-card reveal" id="eld-hos">
+        <div class="pc-top">
+          <span class="pc-icon">🚛</span>
+          <span class="pill ok">0 ANR · 0 crash</span>
+        </div>
+        <div>
+          <div class="pc-name">ELD Mandate HOS App</div>
+          <div class="pc-meta">5,000+ active drivers · live on Play Store</div>
+        </div>
+        <p class="pc-desc">FMCSA-compliant Hours-of-Service tracking with a real-time Bluetooth Low Energy link to ELD hardware — duty status management and automated regulatory reporting, holding zero ANR and zero crashes across 5K+ fleet drivers in daily use.</p>
+        <div class="tag-row"><span class="pill">BLE</span><span class="pill">FMCSA</span><span class="pill">Kotlin</span><span class="pill">Coroutines</span><span class="pill">MVVM</span></div>
+        <a href="https://play.google.com/store/apps/details?id=com.eldmandate.hos" target="_blank" rel="noopener" class="link-arrow pc-link">View on Play Store <span class="arrow">→</span></a>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="pc-top">
+          <span class="pc-icon">📷</span>
+          <span class="pill ok">0 ANR · 0 crash</span>
+        </div>
+        <div>
+          <div class="pc-name">ADAS Dashcam App</div>
+          <div class="pc-meta">500+ active users · live on Play Store</div>
+        </div>
+        <p class="pc-desc">AI-assisted dashcam with ADAS driver behaviour alerts, lane departure warnings, and forward collision detection — streaming live footage to fleet operators over AWS Kinesis.</p>
+        <div class="tag-row"><span class="pill">ADAS</span><span class="pill">AI Safety</span><span class="pill">AWS Kinesis</span><span class="pill">Real-time</span></div>
+        <a href="https://play.google.com/store/apps/details?id=com.eldmandate.adasdashcam" target="_blank" rel="noopener" class="link-arrow pc-link">View on Play Store <span class="arrow">→</span></a>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="pc-top">
+          <span class="pc-icon">📹</span>
+          <span class="pill ok">0 ANR · 0 crash</span>
+        </div>
+        <div>
+          <div class="pc-name">Dual Dashcam App</div>
+          <div class="pc-meta">Fleet safety</div>
+        </div>
+        <p class="pc-desc">Dual-channel dashcam app supporting simultaneous front and cabin recording, with live streaming, incident tagging, and remote fleet monitoring for US commercial trucking operations.</p>
+        <div class="tag-row"><span class="pill">Dual camera</span><span class="pill">Live stream</span><span class="pill">Kotlin</span><span class="pill">Fleet</span></div>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="pc-top">
+          <span class="pc-icon">🎥</span>
+          <span class="pill ok">0 ANR · 0 crash</span>
+        </div>
+        <div>
+          <div class="pc-name">C18 360 Dashcam App</div>
+          <div class="pc-meta">360° fleet coverage</div>
+        </div>
+        <p class="pc-desc">360-degree surround-view dashcam app for the C18 hardware — multi-angle recording, real-time blind-spot monitoring, and cloud sync for post-trip analysis across commercial fleets.</p>
+        <div class="tag-row"><span class="pill">360° camera</span><span class="pill">Multi-angle</span><span class="pill">Cloud sync</span><span class="pill">Kotlin</span></div>
+      </div>
+
+      <div class="card project-card reveal" id="elevate">
+        <div class="pc-top">
+          <span class="pc-icon">💬</span>
+          <span class="pill accent">Healthcare</span>
+        </div>
+        <div>
+          <div class="pc-name">Elevate</div>
+          <div class="pc-meta">Live on Play Store</div>
+        </div>
+        <p class="pc-desc">Anonymous consultancy chat platform for drug addiction recovery — connecting people with certified counsellors and doctors in a private, stigma-free environment, with confidential sessions and progress tracking.</p>
+        <div class="tag-row"><span class="pill">Anonymous chat</span><span class="pill">Healthcare</span><span class="pill">Kotlin</span><span class="pill">Firebase</span></div>
+        <a href="https://play.google.com/store/apps/details?id=com.elevate.eldmandate" target="_blank" rel="noopener" class="link-arrow pc-link">View on Play Store <span class="arrow">→</span></a>
+      </div>
+
+      <div class="card project-card reveal">
+        <div class="pc-top">
+          <span class="pc-icon">🤖</span>
+          <span class="pill accent">AI-powered</span>
+        </div>
+        <div>
+          <div class="pc-name">ELD AI</div>
+          <div class="pc-meta">Live on Play Store</div>
+        </div>
+        <p class="pc-desc">AI-powered ELD companion that assists drivers with intelligent HOS recommendations, predictive compliance alerts, and automated logbook suggestions — reducing manual input and violation risk.</p>
+        <div class="tag-row"><span class="pill">AI / ML</span><span class="pill">HOS</span><span class="pill">Automation</span><span class="pill">Kotlin</span></div>
+        <a href="https://play.google.com/store/apps/details?id=com.eldmandate.eld.ai" target="_blank" rel="noopener" class="link-arrow pc-link">View on Play Store <span class="arrow">→</span></a>
+      </div>
+
+      <div class="card project-card reveal" id="eld-portal" style="grid-column:1 / -1;">
+        <div class="pc-top">
+          <span class="pc-icon">🖥️</span>
+          <span class="pill accent">Web + mobile</span>
+        </div>
+        <div>
+          <div class="pc-name">ELD Mandate Portal</div>
+          <div class="pc-meta">1,000+ fleet operators · API-first</div>
+        </div>
+        <p class="pc-desc">Fully dynamic fleet management platform — web portal and companion mobile app, both driven entirely through APIs. ADAS livestream, real-time GPS driver and vehicle tracking, geofencing, a hardware purchase module, and a full fleet analytics dashboard.</p>
+        <div class="tag-row"><span class="pill">REST APIs</span><span class="pill">GPS tracking</span><span class="pill">Geofencing</span><span class="pill">Real-time</span><span class="pill">Web</span><span class="pill">Android</span></div>
+        <a href="https://play.google.com/store/apps/details?id=biz.eldmandate.assettracker" target="_blank" rel="noopener" class="link-arrow pc-link">Mobile app on Play Store <span class="arrow">→</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NAKSHATRA -->
+  <section class="container">
+    <div class="company-band reveal">
+      <span class="cb-label">Nakshatra Technohub Pvt Ltd</span>
+      <hr class="hr" style="flex:1;">
+    </div>
+    <div class="projects-grid">
+      <div class="card project-card reveal">
+        <div class="pc-top">
+          <span class="pc-icon">🏦</span>
+          <span class="pill warn">PwC certified</span>
+        </div>
+        <div>
+          <div class="pc-name">WriterSafeGuard Custodian</div>
+          <div class="pc-meta">18,000+ ATMs across India · enterprise B2B</div>
+        </div>
+        <p class="pc-desc">Highly secure banking custodian app deployed via APK to enterprise clients, managing 18,000+ ATMs across India. Achieved PwC certification for security and reliability as a white-label B2B solution.</p>
+        <div class="tag-row"><span class="pill">Fintech</span><span class="pill">B2B APK</span><span class="pill">Enterprise security</span></div>
+      </div>
+      <div class="card project-card reveal">
+        <div class="pc-top">
+          <span class="pc-icon">🗓️</span>
+          <span class="pill warn">Built from scratch</span>
+        </div>
+        <div>
+          <div class="pc-name">HubSched</div>
+          <div class="pc-meta">Live on Play Store</div>
+        </div>
+        <p class="pc-desc">Scheduling and workforce management app built entirely from scratch — shift assignments, team coordination, availability tracking, and real-time notifications for enterprise workforce operations.</p>
+        <div class="tag-row"><span class="pill">Scheduling</span><span class="pill">Kotlin</span><span class="pill">Firebase</span><span class="pill">MVVM</span></div>
+        <a href="https://play.google.com/store/search?q=HubSched" target="_blank" rel="noopener" class="link-arrow pc-link">View on Play Store <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RHYME TECH -->
+  <section class="container">
+    <div class="company-band reveal">
+      <span class="cb-label">Rhyme Tech Pvt Ltd</span>
+      <hr class="hr" style="flex:1;">
+    </div>
+    <div class="projects-grid">
+      <div class="card project-card reveal">
+        <div class="pc-top">
+          <span class="pc-icon">🎥</span>
+          <span class="pill accent">Consumer social</span>
+        </div>
+        <div>
+          <div class="pc-name">Chitchat — AMA, Talk, Stream</div>
+          <div class="pc-meta">Live on Play Store</div>
+        </div>
+        <p class="pc-desc">Video-based social platform for content creation, live streaming, AMAs, and audience interaction — built with GraphQL and Firebase for real-time engagement at scale.</p>
+        <div class="tag-row"><span class="pill">GraphQL</span><span class="pill">Firebase</span><span class="pill">Live streaming</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREELANCE -->
+  <section class="container">
+    <div class="company-band reveal">
+      <span class="cb-label">Freelance projects</span>
+      <hr class="hr" style="flex:1;">
+    </div>
+    <div class="projects-grid">
+      <div class="card project-card reveal">
+        <div class="pc-top"><span class="pc-icon">🛒</span><span class="pill ok">Flutter</span></div>
+        <div><div class="pc-name">PG Store</div><div class="pc-meta">Live on Play Store</div></div>
+        <p class="pc-desc">Full-featured e-commerce app built in Flutter — product catalog, cart, order tracking, and payment gateway integration, delivered end to end from scoping to Play Store.</p>
+        <div class="tag-row"><span class="pill">Flutter</span><span class="pill">Dart</span><span class="pill">E-commerce</span></div>
+        <a href="https://play.google.com/store/apps/details?id=com.pgstore.com" target="_blank" rel="noopener" class="link-arrow pc-link">View on Play Store <span class="arrow">→</span></a>
+      </div>
+      <div class="card project-card reveal">
+        <div class="pc-top"><span class="pc-icon">📱</span><span class="pill ok">Kotlin</span></div>
+        <div><div class="pc-name">NRFS</div><div class="pc-meta">Live on Play Store</div></div>
+        <p class="pc-desc">Native Android app delivered as an independent freelance project — Kotlin, clean architecture, REST API integration, published and maintained on the Play Store.</p>
+        <div class="tag-row"><span class="pill">Kotlin</span><span class="pill">REST API</span><span class="pill">Clean Arch</span></div>
+        <a href="https://play.google.com/store/apps/details?id=com.nrfs" target="_blank" rel="noopener" class="link-arrow pc-link">View on Play Store <span class="arrow">→</span></a>
+      </div>
+      <div class="card project-card reveal">
+        <div class="pc-top"><span class="pc-icon">🚗</span><span class="pill ok">On-demand</span></div>
+        <div><div class="pc-name">Apnavan Driver</div><div class="pc-meta">On-demand logistics</div></div>
+        <p class="pc-desc">On-demand driver app with real-time ride tracking, earnings dashboard, and live trip management — delivered complete, from requirements to Play Store, as a standalone engagement.</p>
+        <div class="tag-row"><span class="pill">Maps API</span><span class="pill">Real-time</span><span class="pill">Firebase</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container text-center reveal" style="padding-top:5rem;">
+    <h2 style="margin-bottom:1rem;">Have something worth building?</h2>
+    <div class="btn-row" style="justify-content:center;">
+      <a href="../contact/index.html" class="btn btn-primary">Get in touch</a>
+    </div>
+  </section>
+
+</main>
+
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<footer class="site-footer">
+  <div class="foot-copy">© <span id="foot-year">2026</span> Subhodeep Sarkar · Kolkata, India</div>
+  <div class="foot-links">
+    <a href="https://github.com/ssubhodeep" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ssubhodeep/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/isubhodeepsarkar" target="_blank">Instagram</a>
+    <a href="mailto:subhodeepsarkar909@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js?v=5"></script>
+</body>
+</html>
